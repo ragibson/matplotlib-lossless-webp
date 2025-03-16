@@ -6,9 +6,9 @@ Otherwise, matplotlib's `.webp` exports are somewhat low quality unless you add 
 
 ## Installation
 
-This project is on PyPI and can be installed with
+This project is on [PyPI](https://pypi.org/project/matplotlib-lossless-webp/) and can be installed with
 
-    pip install matplotlib-webp-lossless
+    pip install matplotlib-lossless-webp
 
 ## Usage
 
