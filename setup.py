@@ -5,7 +5,7 @@ with open("README.md") as readme_file:
 
 setup(
     name="matplotlib-lossless-webp",
-    version="0.1.1",
+    version="1.0.0",
     description="Tiny Python package that forces lossless compression in matplotlib when saving WebP images",
     long_description=readme,
     long_description_content_type="text/markdown",
@@ -19,6 +19,8 @@ setup(
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
+        "Development Status :: 5 - Production/Stable",
+        "Intended Audience :: Developers",
     ],
     python_requires=">=3.9",
 )
