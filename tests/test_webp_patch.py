@@ -5,12 +5,15 @@ import numpy as np
 from PIL import Image
 
 
-def check_webp_matches_png():
+def check_webp_matches_png(pil_kwargs=None):
     """Check whether .webp and .png exports have identical image data."""
     plt.figure()
     plt.plot([1, 2, 3], [4, 5, 6])
 
-    plt.savefig('test_compare.webp')
+    if pil_kwargs:
+        plt.savefig('test_compare.webp', pil_kwargs=pil_kwargs)
+    else:
+        plt.savefig('test_compare.webp')
     plt.savefig('test_compare.png')
     plt.close()
 
@@ -38,3 +41,9 @@ def test_patch_webp_matches_png():
     """Test that .webp and .png exports have identical image data after our patch."""
     import matplotlib_lossless_webp  # noqa, we actually depend on this test running second
     assert check_webp_matches_png()
+
+
+def test_patch_webp_explicitly_lossy_does_not_match_png():
+    """Test that this package does not override explicitly choosing lossy .webp."""
+    import matplotlib_lossless_webp  # noqa
+    assert not check_webp_matches_png(pil_kwargs={'lossless': False})
